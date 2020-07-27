@@ -1,10 +1,10 @@
-import withPlugins from 'next-compose-plugins'
-import withPWA from 'next-pwa'
-import optimizedImages from 'next-optimized-images'
+const withPlugins = require('next-compose-plugins')
+const withPWA = require('next-pwa')
+const optimizedImages = require('next-optimized-images')
 
 const isProd = process.env.NODE_ENV === 'production'
 
-export default withPlugins([
+module.exports = withPlugins([
   [
     withPWA,
     {
