@@ -1,8 +1,6 @@
 export type LogoProps = {
-  logo: {
-    alternativeText: string
-    url: string
-  }
+  alternativeText: string
+  url: string
 }
 
 export type LandingPageProps = {
