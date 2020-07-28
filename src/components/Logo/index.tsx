@@ -1,4 +1,5 @@
 import React from 'react'
+
 import { LogoProps } from 'types/api'
 import { getImageUrl } from 'utils/getImageUrl'
 
