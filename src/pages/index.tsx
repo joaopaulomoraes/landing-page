@@ -8,7 +8,7 @@ import SectionConcepts from 'components/SectionConcepts'
 import SectionModules from 'components/SectionModules'
 import SectionAgenda from 'components/SectionAgenda'
 import PricingBox from 'components/PricingBox'
-import SectionAboutUs from 'components/SectionAboutUs'
+import SectionAuthors from 'components/SectionAuthors'
 import SectionReviews from 'components/SectionReviews'
 import SectionFaq from 'components/SectionFaq'
 import Footer from 'components/Footer'
@@ -27,7 +27,8 @@ const Index = ({
   sectionConcepts,
   sectionModules,
   sectionAgenda,
-  pricingBox
+  pricingBox,
+  sectionAuthors
 }: LandingPageProps) => (
   <>
     <SectionHero logo={logo} header={header} />
@@ -37,7 +38,7 @@ const Index = ({
     <SectionModules {...sectionModules} />
     <SectionAgenda {...sectionAgenda} />
     <PricingBox {...pricingBox} />
-    <SectionAboutUs />
+    <SectionAuthors {...sectionAuthors} />
     <SectionReviews />
     <SectionFaq />
     <Footer />
