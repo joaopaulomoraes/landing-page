@@ -3,16 +3,12 @@ import ResizeObserver from 'resize-observer-polyfill'
 
 import * as S from './styles'
 
-type Props = {
-  id: number
-  name: string
-  image: string
-  description: string
-}
+import { Review } from 'types/api'
+import { getImageUrl } from 'utils/getImageUrl'
 
-const ReviewCard: React.FC<Props> = ({ id, name, image, description }) => {
+const ReviewCard: React.FC<Review> = ({ id, name, photo, text }) => {
   useEffect(() => {
-    const texts = document.querySelectorAll('p.description')
+    const texts = document.querySelectorAll('p.text')
 
     const observer = new ResizeObserver((entries) => {
       for (const entry of entries) {
@@ -30,26 +26,16 @@ const ReviewCard: React.FC<Props> = ({ id, name, image, description }) => {
   return (
     <S.Card>
       <S.User>
-        <S.Image>
-          <source
-            srcSet={require(`@images/reviews/${image}?webp`)}
-            type="image/webp"
-          />
-          <source
-            srcSet={require(`@images/reviews/${image}`)}
-            type="image/jpg"
-          />
-          <img
-            src={require(`@images/reviews/${image}`)}
-            loading="lazy"
-            alt={name}
-          />
-        </S.Image>
+        <S.Image
+          src={getImageUrl(photo.url)}
+          alt={photo.alternativeText}
+          loading="lazy"
+        />
         <S.Name>{name}</S.Name>
       </S.User>
       <S.Text>
         <input type="checkbox" id={`review-${id}`} />
-        <p className="description">{description}</p>
+        <p className="description">{text}</p>
         <label className="label-more" htmlFor={`review-${id}`}>
           Ver tudo
         </label>
